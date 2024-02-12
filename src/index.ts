@@ -1,7 +1,9 @@
 import { Hono } from 'hono'
+import { prettyJSON } from 'hono/pretty-json'
 
 const app = new Hono()
 
+app.use(prettyJSON())
 app.get('/', c => {
   const resp = {
     ip: c.req.header('x-real-ip'),
